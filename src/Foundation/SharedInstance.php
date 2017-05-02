@@ -6,18 +6,21 @@ trait SharedInstance
 {
 
     /**
+     * @var static
+     */
+    protected static $instance;
+
+    /**
      * @return static
      */
     public static function sharedInstance()
     {
-        static $sharedInstance;
-
-        if (!$sharedInstance)
+        if (!static::$instance)
         {
-            $sharedInstance = new static();
+            static::$instance = new static();
         }
 
-        return $sharedInstance;
+        return static::$instance;
     }
 
 }
