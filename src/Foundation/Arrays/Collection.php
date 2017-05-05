@@ -203,4 +203,28 @@ class Collection implements \IteratorAggregate, \Countable
         return new static(array_keys($this->data));
     }
 
+    /**
+     * @return static
+     */
+    public function shuffle()
+    {
+        return $this->sortWith(function ()
+        {
+            return random_int(-1, 1);
+        });
+    }
+
+    /**
+     * @param callable $callback
+     *
+     * @return static
+     */
+    public function sortWith(callable $callback)
+    {
+        $data = $this->data;
+        uasort($data, $callback);
+
+        return new static($data);
+    }
+
 }

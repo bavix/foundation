@@ -27,20 +27,20 @@ $data = $collection
 var_dump($data);
 
 $collection = new \Bavix\Foundation\Arrays\Collection([
-    new Bavix\Iterator\Iterator([
+    'a' => new Bavix\Iterator\Iterator([
         'name' => 'Ivan',
         'age'  => 24
     ]),
-    new Bavix\Iterator\Iterator([
+    'b' => new Bavix\Iterator\Iterator([
         'name' => 'Petr',
         'age'  => 22
     ]),
-    new Bavix\Iterator\Iterator([
+    'c' => new Bavix\Iterator\Iterator([
         'name' => 'Alex',
         'age'  => 27
     ]),
 ]);
 
-$data = $collection->column('name');
+$data = $collection->shuffle()->column('name');
 
 var_dump($data);
