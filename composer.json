@@ -8,7 +8,7 @@
       "email": "info@babichev.net"
     }
   ],
-  "require-dev": {
+  "require": {
     "bavix/iterator": "^1.0"
   },
   "autoload": {

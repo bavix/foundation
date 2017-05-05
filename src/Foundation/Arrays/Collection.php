@@ -2,11 +2,14 @@
 
 namespace Bavix\Foundation\Arrays;
 
-use Bavix\Iterator\Iterator;
+use Bavix\Iterator\Traits;
 use Traversable;
 
 class Collection implements \IteratorAggregate, \Countable
 {
+
+    use Traits\IteratorAggregate;
+    use Traits\Countable;
 
     /**
      * @var array
@@ -32,14 +35,6 @@ class Collection implements \IteratorAggregate, \Countable
     }
 
     /**
-     * @return int
-     */
-    public function count()
-    {
-        return count($this->data);
-    }
-
-    /**
      * @param array|Traversable $data
      *
      * @return array
@@ -52,14 +47,6 @@ class Collection implements \IteratorAggregate, \Countable
         }
 
         return $data;
-    }
-
-    /**
-     * @return Iterator
-     */
-    public function getIterator()
-    {
-        return new Iterator($this->data);
     }
 
     /**
