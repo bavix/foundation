@@ -3,6 +3,7 @@
 namespace Bavix\Foundation\Arrays;
 
 use Bavix\Iterator\Iterator;
+use Traversable;
 
 class Collection implements \IteratorAggregate, \Countable
 {
@@ -39,15 +40,15 @@ class Collection implements \IteratorAggregate, \Countable
     }
 
     /**
-     * @param array|Iterator|Collection $data
+     * @param array|Traversable $data
      *
      * @return array
      */
     protected function toArray($data)
     {
-        if ($data instanceof Iterator || $data instanceof self)
+        if ($data instanceof Traversable)
         {
-            return $data->asArray();
+            return \iterator_to_array($data);
         }
 
         return $data;
@@ -98,7 +99,7 @@ class Collection implements \IteratorAggregate, \Countable
     }
 
     /**
-     * @param Collection|Iterator|array $data
+     * @param Traversable|array $data
      *
      * @return static
      */
@@ -108,7 +109,7 @@ class Collection implements \IteratorAggregate, \Countable
     }
 
     /**
-     * @param Collection|Iterator|array $data
+     * @param Traversable|array $data
      *
      * @return static
      */
@@ -118,7 +119,7 @@ class Collection implements \IteratorAggregate, \Countable
     }
 
     /**
-     * @param Collection|Iterator|array $data
+     * @param Traversable|array $data
      *
      * @return static
      */
@@ -128,7 +129,7 @@ class Collection implements \IteratorAggregate, \Countable
     }
 
     /**
-     * @param Collection|Iterator|array $data
+     * @param Traversable|array $data
      *
      * @return static
      */

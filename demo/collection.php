@@ -43,4 +43,5 @@ $collection = new \Bavix\Foundation\Arrays\Collection([
 
 $data = $collection->shuffle()->column('name');
 
+var_dump(iterator_to_array($collection));
 var_dump($data);
