@@ -66,7 +66,7 @@ class Collection implements \IteratorAggregate, \Countable
      */
     public function filter(callable $callback)
     {
-        return new static(array_filter($this->data, $callback));
+        return new static(array_filter($this->data, $callback, ARRAY_FILTER_USE_BOTH));
     }
 
     /**
